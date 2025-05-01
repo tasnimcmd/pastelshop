@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shopping Cart - Pastel Dream Closet</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: #fff5fa;
+      color: #444;
+    }
+    header {
+      background: #ffd9e8;
+      padding: 1em;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 1em;
+      text-decoration: none;
+      color: #c2185b;
+    }
+    .cart-section {
+      padding: 2em;
+      background: #fffafa;
+      border-radius: 10px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 1em;
+      border-bottom: 1px solid #ccc;
+    }
+    .cart-item:last-child {
+      border-bottom: none;
+    }
+    .checkout-form {
+      display: none;
+      margin-top: 2em;
+      padding: 1em;
+      background: #ffeef8;
+      border-radius: 10px;
+    }
+    .checkout-form input, .checkout-form select, .checkout-form textarea {
+      width: 100%;
+      padding: 0.7em;
+      margin-top: 0.5em;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .checkout-form button {
+      background: #c2185b;
+      color: white;
+      padding: 0.7em;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+    }
+    footer {
+      background: #ffd9e8;
+      padding: 1em;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Your Cart</h1>
+  </header>
+  
+  <div class="cart-section">
+    <h2>Items in Your Cart</h2>
+    <div class="cart-item">
+      <span>Fluffy Pink Hoodie (Size M) - 850৳</span>
+      <button>Remove</button>
+    </div>
+    <div class="cart-item">
+      <span>Sky Blue Dress (Size L) - 1200৳</span>
+      <button>Remove</button>
+    </div>
+    <div class="cart-item">
+      <span>Total: 2050৳</span>
+    </div>
+    <button onclick="showCheckoutForm()">Proceed to Checkout</button>
+
+    <!-- Checkout Form -->
+    <div class="checkout-form" id="checkout-form">
+      <h3>Checkout Information</h3>
+      <form>
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <input type="tel" placeholder="Phone Number" required>
+        <input type="text" placeholder="Shipping Address" required>
+        <select required>
+          <option value="bKash">bKash</option>
+          <option value="Nagad">Nagad</option>
+          <option value="COD">Cash on Delivery</option>
+        </select>
+        <textarea placeholder="Additional Notes (if any)" rows="4"></textarea>
+        <button type="submit">Place Order</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Pastel Dream Closet</p>
+  </footer>
+
+  <script>
+    function showCheckoutForm() {
+      const checkoutForm = document.getElementById('checkout-form');
+      checkoutForm.style.display = 'block';
+    }
+  </script>
+</body>
+</html>

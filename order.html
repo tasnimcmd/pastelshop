@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order - Pastel Dream Closet</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: #fff5fa;
+      color: #444;
+    }
+    header {
+      background: #ffd9e8;
+      padding: 1em;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 1em;
+      text-decoration: none;
+      color: #c2185b;
+    }
+    .order-section {
+      padding: 2em;
+      background: #fffafa;
+      border-radius: 10px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .order-section input, .order-section select {
+      width: 100%;
+      padding: 0.7em;
+      margin-top: 0.5em;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .order-section button {
+      background: #c2185b;
+      color: white;
+      padding: 0.7em;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+    }
+    footer {
+      background: #ffd9e8;
+      padding: 1em;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Order Your Favorites</h1>
+  </header>
+  
+  <div class="order-section">
+    <h2>Place Your Order</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <input type="tel" placeholder="Your Phone Number" required>
+      <select>
+        <option value="bKash">bKash</option>
+        <option value="Nagad">Nagad</option>
+        <option value="COD">Cash on Delivery</option>
+      </select>
+      <button type="submit">Submit Order</button>
+    </form>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Pastel Dream Closet</p>
+  </footer>
+</body>
+</html>

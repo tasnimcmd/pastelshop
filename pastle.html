@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pastel Dream Closet</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: #fff5fa;
+      color: #444;
+      animation: fadeIn 1s ease-in;
+    }
+    header, footer {
+      background: #ffd9e8;
+      padding: 1em;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      margin: 0 1em;
+      text-decoration: none;
+      color: #c2185b;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #de6a94;
+    }
+    .hero-text {
+      text-align: center;
+      font-size: 2em;
+      color: #de6a94;
+      margin: 1em 0;
+      animation: fadeTextIn 2s ease-out;
+    }
+    @keyframes fadeTextIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .container {
+      padding: 2em;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .product {
+      background: #fff0f5;
+      border-radius: 15px;
+      padding: 1em;
+      margin: 1em 0;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      position: relative;
+    }
+    .product:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+    .product img {
+      width: 150px;
+      height: auto;
+      border-radius: 10px;
+      margin-right: 1em;
+      transition: transform 0.3s;
+    }
+    .product img:hover {
+      transform: scale(1.1);
+    }
+    .product h3 { color: #c2185b; }
+    .product select, .product button {
+      margin-top: 0.5em;
+      padding: 0.5em;
+      border: none;
+      border-radius: 8px;
+    }
+    .product button {
+      background: #de6a94;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .product button:hover {
+      background: #c2185b;
+    }
+    .about-section, .contact-section, .order-section, .cart-section {
+      background: #fffafa;
+      padding: 1em;
+      border-radius: 10px;
+      margin-bottom: 2em;
+    }
+    input, select {
+      width: 100%;
+      padding: 0.5em;
+      margin-top: 0.5em;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button.submit-order {
+      margin-top: 1em;
+      background: #c2185b;
+      color: white;
+      padding: 0.7em;
+      border: none;
+      border-radius: 8px;
+      width: 100%;
+      cursor: pointer;
+    }
+    .social-icons i {
+      font-size: 1.2em;
+      margin: 0 0.5em;
+      color: #c2185b;
+    }
+  </style>
+  <script>
+    const cart = [];
+    function addToCart(product, price, size, color) {
+      cart.push({ product, price, size, color });
+      alert(`${product} (${color}, ${size}) added to cart!`);
+      displayCart();
+    }
+    function displayCart() {
+      const cartItems = document.getElementById('cart-items');
+      cartItems.innerHTML = '';
+      let total = 0;
+      cart.forEach(item => {
+        total += item.price;
+        const div = document.createElement('div');
+        div.textContent = `${item.product} - Size: ${item.size}, Color: ${item.color} - ${item.price}৳`;
+        cartItems.appendChild(div);
+      });
+      document.getElementById('cart-total').textContent = `Total: ${total}৳`;
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Pastel Dream Closet 🛍️</h1>
+    <nav>
+      <a href="about.html" target="_blank">About</a>
+      <a href="contact.html" target="_blank">Contact</a>
+      <a href="order.html" target="_blank">Order</a>
+      <a href="cart.html" target="_blank">Cart</a>
+    </nav>
+  </header>
+
+  <div class="hero-text">Wearing your mood in pastels 🌸</div>
+
+  <div class="container" id="home">
+    <div class="product">
+      <img src="https://i.pinimg.com/originals/0f/4f/a4/0f4fa4845bcac1e5ac43d9a0ad17a545.jpg" alt="Fluffy Pink Hoodie" />
+      <div>
+        <h3>Fluffy Pink Hoodie</h3>
+        <p>Price: 850৳</p>
+        <label>Size:</label>
+        <select id="hoodie-size">
+          <option>S</option><option>M</option><option>L</option><option>XL</option>
+        </select>
+        <label>Color:</label>
+        <select id="hoodie-color">
+          <option>Blush Pink</option><option>White</option><option>Lavender</option>
+        </select><br>
+        <button onclick="addToCart('Fluffy Pink Hoodie', 850, document.getElementById('hoodie-size').value, document.getElementById('hoodie-color').value)">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="https://i.pinimg.com/originals/6e/2e/2d/6e2e2d06b0d0f4dfe3db8fd041f68a38.jpg" alt="Sky Blue Dress" />
+      <div>
+        <h3>Sky Blue Dress</h3>
+        <p>Price: 1200৳</p>
+        <label>Size:</label>
+        <select id="dress-size">
+          <option>S</option><option>M</option><option>L</option><option>XL</option>
+        </select>
+        <label>Color:</label>
+        <select id="dress-color">
+          <option>Sky Blue</option><option>Mint</option><option>Peach</option>
+        </select><br>
+        <button onclick="addToCart('Sky Blue Dress', 1200, document.getElementById('dress-size').value, document.getElementById('dress-color').value)">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="https://i.pinimg.com/originals/12/52/9b/12529b2d063d7c7a9b20f702fe71a660.jpg" alt="Peach Blossom Top" />
+      <div>
+        <h3>Peach Blossom Top</h3>
+        <p>Price: 650৳</p>
+        <label>Size:</label>
+        <select id="top-size">
+          <option>S</option><option>M</option><option>L</option>
+        </select>
+        <label>Color:</label>
+        <select id="top-color">
+          <option>Peach</option><option>White</option><option>Baby Pink</option>
+        </select><br>
+        <button onclick="addToCart('Peach Blossom Top', 650, document.getElementById('top-size').value, document.getElementById('top-color').value)">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p class="social-icons">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-tiktok"></i></a>
+    </p>
+    <p>&copy; 2025 Pastel Dream Closet</p>
+  </footer>
+</body>
+</html>
